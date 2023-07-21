@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rola21-Tic Tac Toe 2</title>
+<style>
+
+
+body {
+    background-color: #f1f1f1;
+    padding: 0px;
+    font-family: Arial;
+  }
+
+h1 {
+  color: darkslateblue;
+}
+
+h2 {
+  color: green;
+}
+
+h4 { 
+  display: block;
+  font-size: 1em;
+  margin-top: 0.33em;
+  margin-bottom: 0.2em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  color: brown;
+}
+
+h5 {
+  display: block;
+  font-size: .83em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  /* color: darkblue; */
+  color: rgb(12, 104, 143); 
+}
+
+p {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid-container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 150px 150px 150px;
+  grid-auto-rows: 150px;
+  /* background-color: #2196F3; */
+  background-color: white;
+  padding: 10px;
+  gap: 10px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 0px;
+  font-size: 30px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h1>Rola's tic-tac-toe</h1>
+<h5>Created By Gedo on July 17, 2023</h5>
+
+<div class="grid-container">
+  <div class="grid-item"> 
+    <img id="0" src="shop/Blank1 lBlue 150x150.jpg" alt="0"
+    onclick="canStamp(this)">
+  </div>
+  <div class="grid-item">
+    <img id="1" src="shop/Blank1 lBlue 150x150.jpg" alt="1"
+    onclick="canStamp(this)">
+  </div>
+  <div class="grid-item">
+    <img id="2" src="shop/Blank1 lBlue 150x150.jpg" alt="2"
+    onclick="canStamp(this)">
+  </div>
+  <div class="grid-item"> 
+    <img id="3" src="shop/Blank1 lBlue 150x150.jpg" alt="3"
+    onclick="canStamp(this)">
+  </div>
+  <div class="grid-item">
+    <img id="4" src="shop/Blank1 lBlue 150x150.jpg" alt="4"
+    onclick="canStamp(this)">
+  </div>
+  <div class="grid-item">
+    <img id="5" src="shop/Blank1 lBlue 150x150.jpg" alt="5"
+    onclick="canStamp(this)">
+  </div>
+  <div class="grid-item"> 
+    <img id="6" src="shop/Blank1 lBlue 150x150.jpg" alt="6"
+    onclick="canStamp(this)">
+  </div>
+  <div class="grid-item">
+    <img id="7" src="shop/Blank1 lBlue 150x150.jpg" alt="7"
+    onclick="canStamp(this)">
+  </div>
+  <div class="grid-item">
+    <img id="8" src="shop/Blank1 lBlue 150x150.jpg" alt="8"
+    onclick="canStamp(this)">
+  </div>
+
+</div>
+
+<script>
+    
+//                                         G L O B A L   V A R I A B L E S
+
+const src_Root = "../shop/";                       // Root Directory for Rola's all images 
+// const sound_Root = "../shop/Sounds/Animals/";       // Root Directory for whatever to be played after winning 
+
+//                                                 S O U N D S
+// toyDuckSound = new Audio ('../shop/sounds/general/Toy Duck.m4a');       // Losing sound
+// kCheersSound = new Audio ('../shop/sounds/Kids Cheering.mp3');          // Winning sound
+// bravo01Sound = new Audio ('../shop/sounds/bravo 02.m4a');               // Bravo word by Geedooooooo!
+// wrongBuzzSound = new Audio ('../shop/sounds/Buzzer_Wrong_Answer.mp3')
+videoGameWinSound = new Audio ('shop/mixkit-video-game-win-2016.wav'); // Winning sound
+// notGood = new Audio('../../Games/AK Games/Shop/Audio/mixkit-sad-game-over-trombone-471.wav'); 
+// good = new Audio('../../Games/AK Games/Shop/Audio/mixkit-crowd-clapping-442.wav'); 
+
+
+
+    var player = 4; // intial player id. Player 1ith id = 1 always starts the game. Sign is "O"
+    var playerSign = "";
+    var r1, r2, r3 = 0;  // To hold totals for rows
+    var c1, c2, c3 = 0;  // To hold totals for columns
+    var d1, d2 = 0;      // To hold totals for diagonals
+    var s = [0,0,0,0,0,0,0,0,0]; // To mark if slot was previously selected 
+
+    // To ensure the selected slot is available before proceeding
+
+    function canStamp(mofta7) {
+        slotPos = mofta7.alt;
+        if (s[slotPos] == 0) {
+            getPlayerId();
+            // alert("slotPos = "+slotPos);
+            document.getElementById(slotPos).src = playerSign;
+            s[slotPos] += player;  
+            chkWinner();  
+        }
+        else {
+            alert("Cannot select this one!");
+        }
+    }
+
+    // To set up the current player id
+
+    function getPlayerId() {
+        if (player == 4) {
+          player = 1; 
+          playerSign = "shop/o E 140x140.jpg"; 
+        }
+        else {
+          player = 4;
+          playerSign = "shop/x E 140x140.jpg";
+        }
+        // alert("player = " + player);
+    }
+
+    // To check for a winner 
+
+    function chkWinner() {
+        r1 = s[0]+s[1]+s[2];
+        r2 = s[3]+s[4]+s[5];
+        r3 = s[6]+s[7]+s[8];
+        c1 = s[0]+s[3]+s[6];
+        c2 = s[1]+s[4]+s[7];
+        c3 = s[2]+s[5]+s[8];
+        d1 = s[0]+s[4]+s[8];
+        d2 = s[2]+s[4]+s[6];
+
+
+        if (r1 == 3 || r1 == 12 || r2 == 3 || r2 == 12 || r3 == 3 || r3 == 12 ||
+            c1 == 3 || c1 == 12 || c2 == 3 || c2 == 12 || c3 == 3 || c3 == 12 ||
+            d1 == 3 || d1 == 12 ||
+            d2 == 3 || d2 == 12)
+        {
+            // We have a winner
+            videoGameWinSound.play(); 
+            // alert("got a winner: " + player);            
+        }
+    }
+</script>
+
+</body>
+</html>
