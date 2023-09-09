@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rola22-Connect 4-Game 2 R 01</title>
+<style>
+
+
+body {
+    background-color: #f1f1f1;
+    padding: 0px;
+    font-family: Arial;
+  }
+
+h1 {
+  color: darkslateblue;
+}
+
+h2 {
+  color: green;
+}
+
+h4 { 
+  display: block;
+  font-size: 1em;
+  margin-top: 0.33em;
+  margin-bottom: 0.2em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  color: brown;
+}
+
+h5 {
+  display: block;
+  font-size: .83em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  /* color: darkblue; */
+  color: rgb(12, 104, 143); 
+}
+
+p {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid-container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 75px 75px 75px 75px 75px 75px;
+  grid-auto-rows: 75px;
+  /* background-color: #2196F3; */
+  background-color: white;
+  padding: 10px;
+  gap: 10px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 0px;
+  font-size: 30px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h1>Rola's Connect4 Game</h1>
+<h5>Created By Gedo on Sept. 01, 2023</h5>
+
+<div class="grid-container">
+  <div class="grid-item"> 
+    <img id="0" src="shop/ThisWay E 75x75.jpg" alt="0"
+    onclick="where2Stamp(this)">
+  </div>
+  <div class="grid-item">
+    <img id="1" src="shop/ThisWay E 75x75.jpg" alt="1"
+    onclick="where2Stamp(this)">
+  </div>
+  <div class="grid-item">
+    <img id="2" src="shop/ThisWay E 75x75.jpg" alt="2"
+    onclick="where2Stamp(this)">
+  </div>
+  <div class="grid-item"> 
+    <img id="3" src="shop/ThisWay E 75x75.jpg" alt="3"
+    onclick="where2Stamp(this)">
+  </div>
+  <div class="grid-item">
+    <img id="4" src="shop/ThisWay E 75x75.jpg" alt="4"
+    onclick="where2Stamp(this)">
+  </div>
+  <div class="grid-item">
+    <img id="5" src="shop/ThisWay E 75x75.jpg" alt="5"
+    onclick="where2Stamp(this)">
+  </div>
+  <div class="grid-item"> 
+    <img id="6" src="shop/Blank1 lBlue 75x75.jpg" alt="6">
+  </div>
+  <div class="grid-item">
+    <img id="7" src="shop/Blank1 lBlue 75x75.jpg" alt="7">
+  </div>
+  <div class="grid-item">
+    <img id="8" src="shop/Blank1 lBlue 75x75.jpg" alt="8">
+  </div>
+  <div class="grid-item"> 
+    <img id="9" src="shop/Blank1 lBlue 75x75.jpg" alt="9">
+  </div>
+  <div class="grid-item">
+    <img id="10" src="shop/Blank1 lBlue 75x75.jpg" alt="10">
+  </div>
+  <div class="grid-item">
+    <img id="11" src="shop/Blank1 lBlue 75x75.jpg" alt="11">
+  </div>
+  <div class="grid-item"> 
+    <img id="12" src="shop/Blank1 lBlue 75x75.jpg" alt="12">
+  </div>
+  <div class="grid-item">
+    <img id="13" src="shop/Blank1 lBlue 75x75.jpg" alt="13">
+  </div>
+  <div class="grid-item">
+    <img id="14" src="shop/Blank1 lBlue 75x75.jpg" alt="14">
+  </div>
+  <div class="grid-item"> 
+    <img id="15" src="shop/Blank1 lBlue 75x75.jpg" alt="15">
+  </div>
+  <div class="grid-item">
+    <img id="16" src="shop/Blank1 lBlue 75x75.jpg" alt="16">
+  </div>
+  <div class="grid-item">
+    <img id="17" src="shop/Blank1 lBlue 75x75.jpg" alt="17">
+  </div>
+  <div class="grid-item"> 
+    <img id="18" src="shop/Blank1 lBlue 75x75.jpg" alt="18">
+  </div>
+  <div class="grid-item">
+    <img id="19" src="shop/Blank1 lBlue 75x75.jpg" alt="19">
+  </div>
+  <div class="grid-item">
+    <img id="20" src="shop/Blank1 lBlue 75x75.jpg" alt="20">
+  </div>
+  <div class="grid-item"> 
+    <img id="21" src="shop/Blank1 lBlue 75x75.jpg" alt="21">
+  </div>
+  <div class="grid-item">
+    <img id="22" src="shop/Blank1 lBlue 75x75.jpg" alt="22">
+  </div>
+  <div class="grid-item">
+    <img id="23" src="shop/Blank1 lBlue 75x75.jpg" alt="23">
+  </div>
+  <div class="grid-item"> 
+    <img id="24" src="shop/Blank1 lBlue 75x75.jpg" alt="24">
+  </div>
+  <div class="grid-item">
+    <img id="25" src="shop/Blank1 lBlue 75x75.jpg" alt="25">
+  </div>
+  <div class="grid-item">
+    <img id="26" src="shop/Blank1 lBlue 75x75.jpg" alt="26">
+  </div>
+  <div class="grid-item"> 
+    <img id="27" src="shop/Blank1 lBlue 75x75.jpg" alt="27">
+  </div>
+  <div class="grid-item">
+    <img id="28" src="shop/Blank1 lBlue 75x75.jpg" alt="28">
+  </div>
+  <div class="grid-item">
+    <img id="29" src="shop/Blank1 lBlue 75x75.jpg" alt="29">
+  </div>
+  <div class="grid-item"> 
+    <img id="30" src="shop/Blank1 lBlue 75x75.jpg" alt="30">
+  </div>
+  <div class="grid-item">
+    <img id="31" src="shop/Blank1 lBlue 75x75.jpg" alt="31">
+  </div>
+  <div class="grid-item">
+    <img id="32" src="shop/Blank1 lBlue 75x75.jpg" alt="32">
+  </div>
+  <div class="grid-item"> 
+    <img id="33" src="shop/Blank1 lBlue 75x75.jpg" alt="33">
+  </div>
+  <div class="grid-item">
+    <img id="34" src="shop/Blank1 lBlue 75x75.jpg" alt="34">
+  </div>
+  <div class="grid-item">
+    <img id="35" src="shop/Blank1 lBlue 75x75.jpg" alt="35">
+  </div>
+</div>
+
+<script>
+
+//                                                  Winning Combos' Data
+
+let winCombos = {
+  '0':  {'combo': [0,1,2,3,0,6,12,18,0,7,14,21],},
+  '1':  {'combo': [1,2,3,4,0,1,2,3,1,7,13,19,1,8,15,22],},
+  '2':  {'combo': [1,2,3,4,0,1,2,3,2,3,4,5,2,8,14,20],},
+  '3':  {'combo': [0,1,2,3,1,2,3,4,2,3,4,5,3,9,15,21,3,8,13,18],},
+  '4':  {'combo': [1,2,3,4,2,3,4,5,4,10,16,22,4,9,14,19],},
+  '5':  {'combo': [2,3,4,5,5,11,17,23,5,10,15,20],},
+  '6':  {'combo': [6,7,8,9,0,6,15,21,6,15,21,27,6,13,20,27],},
+  '7':  {'combo': [6,7,8,9, 7,8,9,10, 1,7,13,19, 7,13,19,25, 0,7,14,21, 7,14,21,28],},
+  '8':  {'combo': [6,7,8,9, 7,8,9,10, 8,9,10,11, 2,8,14,20, 8,14,20,26, 1,8,15,22, 8,15,22,29, 3,8,13,18],},
+  '9':  {'combo': [6,7,8,9, 7,8,9,10, 8,9,10,11, 3,9,15,21, 9,15,21,27, 2,9,16,23, 4,9,14,19. ,9,14,19.24],},
+  '10': {'combo': [7,8,9,10, 8,9,10,11, 4,10,16,22, 10,16,22,28, 5,10,15,20, 10,15,20, 25],},
+  '11': {'combo': [8,9,10,11, 5,11,17,23, 11,17,23,29, 11,16,21,26],},
+  '12': {'combo': [12,13,14,15, 30,24,18,12, 24,18,12,6, 18,12,6,0, 12,19,26,33],},
+  '13': {'combo': [12,13,14,15, 13,14,15,16, 1,7,13,19, 7,13,19,25, 13,19,25,31, 6,13,20,27, 6,13,20,27,34],},
+  '14': {'combo': [12,13,14,15, 13,14,15,16, 14,15,16,17, 2,8,14,20, 8,14,20,26, 14,20,26,32, 0,7,14,21, 7,14,21,28, 14,21,28,35, 4,9,14,19, 9,14,19.24],},
+  '15': {'combo': [12,13,14,15, 13,14,15,16, 14,15,16,,17, 3,9,15,21, 9,15,21,27, 15,21,27,33, 1,8,15,22, 8,15,22,29, 5,10,15,20, 10,15,20, 25, 15,20, 25,30],},
+  '16': {'combo': [13,14,15,16, 14,15,16,17, 4,10,16,22, 10,16,22,28, 16,22,28,34, 2,9,16,23, 11,16,21,26, 16,21,26,31],},
+  '17': {'combo': [14,15,16,17, 5,11,17,23, 11,17,23,29, 17,23,29,35, 17,22,27,32],},
+  '18': {'combo': [18,19,20,21, 30,24,18,12, 24,18,12, 6, 18,12, 6,0, 18,13,8,3],},
+  '19': {'combo': [18,19,20,21, 19,20,21,22, 1,7,13,19, 7,13,19,25, 13,19,25,31, 12,19,26,33, 24,19,14,9, 19,14,9,4],},
+  '20': {'combo': [18,19,20,21, 19,20,21,22, 20,21,22,23, 2,8,14,20, 8,14,20,26, 14,20,26,32, 30,25,20,15, 25,20,15,10, 20,15,10,5, 34,27,20,13, 27,20,13,6],},
+  '21': {'combo': [18,19,20,21, 19,20,21,22, 20,21,22,23, 3,9,15,21, 9,15,21,27, 15,21,27,33, 0,7,14,21, 7,14,21,28, 14,21,28,35, 11,16,21,26, 16,21,26,31],},
+  '22': {'combo': [19,20,21,22, 20,21,22,23, 4,10,16,22, 10,16,22,28, 16,22,28,34, 29,22,15,8, 22,15,8,1, 17,22,27,32],},
+  '23': {'combo': [20,21,22,23, 5,11,17,23, 11,17,23,29, 17,23,29,35, 23,16,9,2],},
+  '24': {'combo': [24,25,26,27,30,24,18,12,24,18,12,6,24,19,14,9],},
+  '25': {'combo': [24,25,26,27,25,26,27,28,25,19,13,7,31,25,19,13,25,20,15,10],},
+  '26': {'combo': [24,25,26,27,25,26,27,28,26,27,28,29,26,20,14,8,32,26,20,14,26,21,16,11],},
+  '27': {'combo': [24,25,26,27,25,26,27,28,26,27,28,29,27,21,15,9,33,27,21,15,32,27,22,17,34,27,20,13,27,20,13,6],},
+  '28': {'combo': [25,26,27,28,26,27,28,29,34,28,22,16,28,22,16,10,28,21,14,7,35,28,21,14],},
+  '29': {'combo': [26,27,28,29,35,29,23,17,29,23,17,11,29,22,15,8],},
+  '30': {'combo': [30,31,32,33,30,24,18,12,30,25,20,15],},
+  '31': {'combo': [30,31,32,33,31,32,33,34,31,25,19,13,31,26,21,16],},
+  '32': {'combo': [30,31,32,33,31,32,33,34,32,33,34,35,32,26,20,14,32,27,22,17],},
+  '33': {'combo': [30,31,32,33,31,32,33,34,32,33,34,35,33,27,21,15,33,26,19,12],},
+  '34': {'combo': [31,32,33,34,32,33,34,35,34,28,22,16,34,27,20,13],},
+  '35': {'combo': [32,33,34,35,35,29,23,17,35,28,21,14],},
+
+};    
+
+//                                         G L O B A L   V A R I A B L E S
+
+const src_Root = "../shop/";                       // Root Directory for Rola's all images 
+// const sound_Root = "../shop/Sounds/Animals/";       // Root Directory for whatever to be played after winning 
+var slotPos;                                       // A storage for the clicked slot position  
+var newGame = false;    
+//                                                 S O U N D S
+// toyDuckSound = new Audio ('../shop/sounds/general/Toy Duck.m4a');       // Losing sound
+// kCheersSound = new Audio ('../shop/sounds/Kids Cheering.mp3');          // Winning sound
+// bravo01Sound = new Audio ('../shop/sounds/bravo 02.m4a');               // Bravo word by Geedooooooo!
+// wrongBuzzSound = new Audio ('../shop/sounds/Buzzer_Wrong_Answer.mp3')
+videoGameWinSound = new Audio ('shop/mixkit-video-game-win-2016.wav'); // Winning sound
+// notGood = new Audio('../../Games/AK Games/Shop/Audio/mixkit-sad-game-over-trombone-471.wav'); 
+// good = new Audio('../../Games/AK Games/Shop/Audio/mixkit-crowd-clapping-442.wav'); 
+
+
+
+    var player = 100; // intial player id. Player with id = 1 and sign = "O" always starts the game.
+    var playerSign = "";
+    const rowLen = 6;
+    var s = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+             0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]; // To mark if slot was previously selected 
+
+    // To place in the 1st available slot in the selected column
+
+    function where2Stamp(mofta7) {
+      if (newGame) {
+          alert('Game is Over!');
+          location.reload();  
+      }
+      else {
+        colSel = mofta7.alt;
+        placeInSlot(colSel);
+      }
+    }
+
+    // To set up the current player id
+
+    function getPlayerId() {
+        if (player == 100) {
+          player = 1; 
+          playerSign = "shop/RedQuoshat E 65x65.jpg"; 
+        }
+        else {
+          player = 100;
+          playerSign = "shop/BlueQuoshat E 65x65.jpg";
+        }
+        // alert("player = " + player);
+    }
+
+    // To check for a winner 
+
+    function chkWinner2(slotPos) {
+      comboTot = 0;
+      // alert("slotPos = " + slotPos);
+      var aCombo = winCombos[slotPos].combo;
+      // alert('aCombo.length = ' + aCombo.length);
+      var cnt = 0;
+      for (let index = 0; index < aCombo.length; index++) {
+          slotNo = aCombo[index];
+          // alert('slotNo = '+ slotNo);
+          // alert('s[slotNo] = '+ s[slotNo]);
+          comboTot = comboTot + s[slotNo];  
+          cnt++;  
+          if (cnt == 4) {
+            // alert('comboTot = '+ comboTot);
+            if ((comboTot == 4) || (comboTot == 400)) {
+            // We have a winner
+               videoGameWinSound.play(); 
+            // alert("got a winner: " + player);   
+            newGame = true; 
+            // break;
+            }
+            cnt = 0;
+            comboTot = 0;         
+          } 
+        }
+    }
+
+    function placeInSlot(colSel) {
+      if (s[colSel] != 0) {
+        alert("Cannot Select This Spot!");
+      }
+      else {
+        for (let index = 30+Number(colSel); index > -1; index -=6) {
+          // alert("index = " + index);
+          if (s[index] == 0)  {
+            getPlayerId();
+            document.getElementById(index).src = playerSign;
+            s[index] += player;  
+            chkWinner2(index); 
+            break; 
+          }
+        }
+      }
+    }
+</script>
+
+</body>
+</html>
